@@ -18,8 +18,12 @@ namespace Tests
             //Act
             var roomBookingRequestProcessor = new RoomBookingRequestProcessor();
 
-            //Assert
             var roomBookingResult = roomBookingRequestProcessor.BookRoom(bookingRequest);
+
+            //Assert
+            Assert.NotNull(roomBookingResult);
+            roomBookingResult.Should().NotBeNull();
+            Assert.Equal(roomBookingResult.FullName, roomBookingResult.FullName);
         }
     }
 }
