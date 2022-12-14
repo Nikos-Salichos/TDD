@@ -13,11 +13,13 @@ namespace Tests
                 FullName = "Test Name",
                 Email = "test@request.com",
                 Date = new DateTime(2023, 12, 14)
-            }
+            };
 
             //Act
+            var roomBookingRequestProcessor = new RoomBookingRequestProcessor();
 
             //Assert
+            var roomBookingResult = roomBookingRequestProcessor.BookRoom(bookingRequest);
         }
     }
 }
