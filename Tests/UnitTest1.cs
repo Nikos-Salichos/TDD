@@ -27,5 +27,15 @@ namespace Tests
             roomBookingResult.Email.Should().Be(bookingRequest.Email);
             roomBookingResult.Date.Should().Be(bookingRequest.Date);
         }
+
+        [Fact]
+        public void Should_Throw_Exception_For_Null_Request()
+        {
+            var roomBookingRequestProcessor = new RoomBookingRequestProcessor();
+
+            var exception = roomBookingRequestProcessor.Invoking(b => b.BookRoom(null))
+                                                         .Should()
+                                                         .Throw<NullReferenceException>();
+        }
     }
 }
