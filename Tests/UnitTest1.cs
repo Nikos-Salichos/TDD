@@ -24,6 +24,8 @@ namespace Tests
             Assert.NotNull(roomBookingResult);
             roomBookingResult.Should().NotBeNull();
             Assert.Equal(roomBookingResult.FullName, roomBookingResult.FullName);
+            Assert.Equal(roomBookingResult.Email, roomBookingResult.Email);
+            Assert.Equal(roomBookingResult.Date, roomBookingResult.Date);
         }
     }
 }
