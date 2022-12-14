@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{6ECB97DA-2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{AE0B8DB3-4A74-437D-A752-D3AC3718A086}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{92C9363A-85CD-40BA-95BB-1C05BEF0A060}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{92C9363A-85CD-40BA-95BB-1C05BEF0A060}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
