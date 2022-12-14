@@ -1,3 +1,4 @@
+using Shouldly;
 using Tests.Models;
 
 namespace Tests
@@ -22,7 +23,7 @@ namespace Tests
 
             //Assert
             Assert.NotNull(roomBookingResult);
-            roomBookingResult.Should().NotBeNull();
+            roomBookingResult.ShouldNotBeNull();
             Assert.Equal(roomBookingResult.FullName, roomBookingResult.FullName);
             Assert.Equal(roomBookingResult.Email, roomBookingResult.Email);
             Assert.Equal(roomBookingResult.Date, roomBookingResult.Date);
