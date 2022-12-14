@@ -35,7 +35,7 @@ namespace Tests
 
             var exception = roomBookingRequestProcessor.Invoking(b => b.BookRoom(null))
                                                          .Should()
-                                                         .Throw<NullReferenceException>();
+                                                         .Throw<ArgumentException>();
         }
     }
 }

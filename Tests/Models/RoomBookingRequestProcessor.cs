@@ -8,6 +8,11 @@
 
         public RoomBookingRequest BookRoom(RoomBookingRequest roomBookingRequest)
         {
+            if (roomBookingRequest == null)
+            {
+                throw new ArgumentException(nameof(roomBookingRequest));
+            }
+
             return new RoomBookingRequest
             {
                 FullName = roomBookingRequest.FullName,
