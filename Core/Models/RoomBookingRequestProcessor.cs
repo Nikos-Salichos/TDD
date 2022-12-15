@@ -2,10 +2,6 @@
 {
     public class RoomBookingRequestProcessor
     {
-        public RoomBookingRequestProcessor()
-        {
-        }
-
         public RoomBookingRequest BookRoom(RoomBookingRequest roomBookingRequest)
         {
             if (roomBookingRequest == null)
