@@ -1,5 +1,6 @@
+using Core.Models;
+using Core.Processors;
 using FluentAssertions;
-using Tests.Models;
 
 namespace Tests
 {

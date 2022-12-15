@@ -2,7 +2,7 @@
 
 namespace Core.Services
 {
-    public class IRoomBookingService
+    public interface IRoomBookingService
     {
         void Save(RoomBooking roomBooking);
     }

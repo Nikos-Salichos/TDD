@@ -1,4 +1,6 @@
-﻿namespace Tests.Models
+﻿using Core.Models;
+
+namespace Core.Processors
 {
     public class RoomBookingRequestProcessor
     {
@@ -6,7 +8,7 @@
         {
             if (roomBookingRequest == null)
             {
-                throw new ArgumentException(nameof(roomBookingRequest));
+                throw new ArgumentException(null, nameof(roomBookingRequest));
             }
 
             return new RoomBookingRequest
