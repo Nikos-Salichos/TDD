@@ -1,14 +1,16 @@
 using Core.Models;
 using Core.Processors;
+using Core.Services;
 using FluentAssertions;
+using Moq;
 
 namespace Tests
 {
     public class RoomBookingRequestProcessorTest
     {
-
         private RoomBookingRequestProcessor _roomBookingRequestProcessor;
         private RoomBookingRequest _roomBookingRequest;
+        private Mock<IRoomBookingService> _roomBookingService;
 
         public RoomBookingRequestProcessorTest()
         {
@@ -21,6 +23,8 @@ namespace Tests
                 Email = "test@request.com",
                 Date = new DateTime(2023, 12, 14)
             };
+
+            _roomBookingService = new Mock<IRoomBookingService>();
         }
 
         [Fact]
