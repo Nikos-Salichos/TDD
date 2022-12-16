@@ -5,7 +5,7 @@ namespace Core.Processors
 {
     public class RoomBookingRequestProcessor
     {
-        private IRoomBookingService _roomBookingService;
+        private readonly IRoomBookingService _roomBookingService;
 
         public RoomBookingRequestProcessor(IRoomBookingService roomBookingService)
         {
