@@ -50,13 +50,13 @@ namespace Tests
         [Fact]
         public void Should_Save_Room_Booking_Request()
         {
-            RoomBooking savedBooking = null;
-            _roomBookingServiceMock.Setup(r => r.Save(It.IsAny<RoomBooking>()))
-                .Callback<RoomBooking>(booking => savedBooking = booking);
+            RoomBookingResult savedBooking = null;
+            _roomBookingServiceMock.Setup(r => r.Save(It.IsAny<RoomBookingResult>()))
+                .Callback<RoomBookingResult>(booking => savedBooking = booking);
 
             _roomBookingRequestProcessor.BookRoom(_roomBookingRequest);
 
-            _roomBookingServiceMock.Verify(r => r.Save(It.IsAny<RoomBooking>()), Times.Once);
+            _roomBookingServiceMock.Verify(r => r.Save(It.IsAny<RoomBookingResult>()), Times.Once);
 
             savedBooking.Should().NotBeNull();
             savedBooking.FullName.Should().Be(_roomBookingRequest.FullName);

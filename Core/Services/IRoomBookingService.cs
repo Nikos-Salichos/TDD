@@ -4,6 +4,6 @@ namespace Core.Services
 {
     public interface IRoomBookingService
     {
-        void Save(RoomBooking roomBooking);
+        void Save(RoomBookingResult roomBooking);
     }
 }
