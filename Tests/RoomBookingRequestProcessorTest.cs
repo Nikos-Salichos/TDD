@@ -14,8 +14,6 @@ namespace Tests
 
         public RoomBookingRequestProcessorTest()
         {
-            _roomBookingRequestProcessor = new RoomBookingRequestProcessor();
-
             //Arrange
             _roomBookingRequest = new RoomBookingRequest
             {
@@ -25,6 +23,7 @@ namespace Tests
             };
 
             _roomBookingService = new Mock<IRoomBookingService>();
+            _roomBookingRequestProcessor = new RoomBookingRequestProcessor(_roomBookingService.Object);
         }
 
         [Fact]

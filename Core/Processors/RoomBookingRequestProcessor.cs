@@ -1,9 +1,17 @@
 ﻿using Core.Models;
+using Core.Services;
 
 namespace Core.Processors
 {
     public class RoomBookingRequestProcessor
     {
+        private IRoomBookingService _roomBookingService;
+
+        public RoomBookingRequestProcessor(IRoomBookingService roomBookingService)
+        {
+            _roomBookingService = roomBookingService;
+        }
+
         public RoomBookingRequest BookRoom(RoomBookingRequest roomBookingRequest)
         {
             if (roomBookingRequest == null)
