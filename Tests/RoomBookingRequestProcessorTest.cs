@@ -8,9 +8,9 @@ namespace Tests
 {
     public class RoomBookingRequestProcessorTest
     {
-        private RoomBookingRequestProcessor _roomBookingRequestProcessor;
-        private RoomBookingRequest _roomBookingRequest;
-        private Mock<IRoomBookingService> _roomBookingService;
+        private readonly RoomBookingRequestProcessor _roomBookingRequestProcessor;
+        private readonly RoomBookingRequest _roomBookingRequest;
+        private readonly Mock<IRoomBookingService> _roomBookingServiceMock;
 
         public RoomBookingRequestProcessorTest()
         {
@@ -22,17 +22,14 @@ namespace Tests
                 Date = new DateTime(2023, 12, 14)
             };
 
-            _roomBookingService = new Mock<IRoomBookingService>();
-            _roomBookingRequestProcessor = new RoomBookingRequestProcessor(_roomBookingService.Object);
+            _roomBookingServiceMock = new Mock<IRoomBookingService>();
+            _roomBookingRequestProcessor = new RoomBookingRequestProcessor(_roomBookingServiceMock.Object);
         }
 
         [Fact]
         public void Should_Return_Room_Booking_Request()
         {
-            //Act
-            var roomBookingRequestProcessor = new RoomBookingRequestProcessor();
-
-            var roomBookingResult = roomBookingRequestProcessor.BookRoom(_roomBookingRequest);
+            var roomBookingResult = _roomBookingRequestProcessor.BookRoom(_roomBookingRequest);
 
             //Assert
             roomBookingResult.Should().NotBeNull();
@@ -53,7 +50,18 @@ namespace Tests
         [Fact]
         public void Should_Save_Room_Booking_Request()
         {
-            //  processor
+            RoomBooking savedBooking = null;
+            _roomBookingServiceMock.Setup(r => r.Save(It.IsAny<RoomBooking>()))
+                .Callback<RoomBooking>(booking => savedBooking = booking);
+
+            _roomBookingRequestProcessor.BookRoom(_roomBookingRequest);
+
+            _roomBookingServiceMock.Verify(r => r.Save(It.IsAny<RoomBooking>()), Times.Once);
+
+            savedBooking.Should().NotBeNull();
+            savedBooking.FullName.Should().Be(_roomBookingRequest.FullName);
+            savedBooking.Email.Should().Be(_roomBookingRequest.Email);
+            savedBooking.Date.Should().Be(_roomBookingRequest.Date);
         }
     }
 }
